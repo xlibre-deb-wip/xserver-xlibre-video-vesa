@@ -4,7 +4,7 @@ xserver-xorg-video-vesa (1:2.3.0-1ubuntu1) UNRELEASED; urgency=low
   * Remove myself from Uploaders
 
   [ Christopher James Halse Rogers ]
-  * debian/patches/001_ubuntu_bail_when_kms_active.patch:
+  * debian/patches/100_bail_when_kms_active.patch:
     + Fail to load when kernel modesetting is active (LP: #531736)
   
  -- Christopher James Halse Rogers <raof@ubuntu.com>  Wed, 24 Mar 2010 20:09:47 +1100

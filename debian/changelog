@@ -6,7 +6,6 @@ xserver-xorg-video-vesa (1:2.3.3-1) UNRELEASED; urgency=low
 
   [ Michele Cane ]
   * Bump Standards-Version to 3.9.4, no changes needed.
-  * Build against Xserver 1.14.
   * New upstream release.
 
  -- Michele Cane <michele.cane@gmail.com>  Thu, 12 Sep 2013 16:01:13 +0200

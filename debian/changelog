@@ -3,6 +3,7 @@ xserver-xorg-video-vesa (1:2.4.0-1) UNRELEASED; urgency=medium
   * New upstream release.
   * Update Vcs-* fields to point at salsa.debian.org.
   * Use https in debian/watch.
+  * Bump Standards-Version to 4.1.3, no changes needed.
 
  -- Sven Joachim <svenjoac@gmx.de>  Sun, 18 Feb 2018 10:02:00 +0100
 

@@ -1,4 +1,4 @@
-xserver-xorg-video-vesa (1:2.4.0-1) UNRELEASED; urgency=medium
+xserver-xorg-video-vesa (1:2.4.0-1) unstable; urgency=medium
 
   [ Sven Joachim ]
   * New upstream release.
@@ -11,7 +11,7 @@ xserver-xorg-video-vesa (1:2.4.0-1) UNRELEASED; urgency=medium
   * Set source format to 1.0.
   * Bump standards version to 4.2.0.
 
- -- Sven Joachim <svenjoac@gmx.de>  Sun, 18 Feb 2018 10:02:00 +0100
+ -- Andreas Boll <aboll@debian.org>  Sat, 18 Aug 2018 13:42:56 +0200
 
 xserver-xorg-video-vesa (1:2.3.4-1) unstable; urgency=medium
 

@@ -9,6 +9,7 @@ xserver-xorg-video-vesa (1:2.4.0-1) UNRELEASED; urgency=medium
   [ Andreas Boll ]
   * Update some URLs in packaging to https.
   * Set source format to 1.0.
+  * Bump standards version to 4.2.0.
 
  -- Sven Joachim <svenjoac@gmx.de>  Sun, 18 Feb 2018 10:02:00 +0100
 

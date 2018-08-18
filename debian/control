@@ -35,7 +35,7 @@ Description: X.Org X server -- VESA display driver
  badly.
  .
  More information about X.Org can be found at:
- <URL:http://www.X.org>
+ <URL:https://www.X.org>
  .
  This package is built from the X.org xf86-video-vesa driver module.
 

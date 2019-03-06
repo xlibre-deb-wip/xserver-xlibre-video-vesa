@@ -683,12 +683,14 @@ VESAPreInit(ScrnInfoPtr pScrn, int flags)
 				    V_MODETYPE_VBE);
 
     /* Preferred order for default depth selection. */
-    if (depths & V_DEPTH_24)
+    if (depths & V_DEPTH_24 && (flags24 & Support32bppFb))
 	defaultDepth = 24;
     else if (depths & V_DEPTH_16)
 	defaultDepth = 16;
     else if (depths & V_DEPTH_15)
 	defaultDepth = 15;
+    else if (depths & V_DEPTH_24)
+        defaultDepth = 24; /* ew though */
     else if (depths & V_DEPTH_8)
 	defaultDepth = 8;
     else if (depths & V_DEPTH_4)

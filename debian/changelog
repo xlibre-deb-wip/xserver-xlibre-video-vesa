@@ -1,8 +1,8 @@
-xserver-xorg-video-vesa (1:2.4.0-2) UNRELEASED; urgency=medium
+xserver-xorg-video-vesa (1:2.4.0-2) unstable; urgency=medium
 
   * Cherry-pick a commit to fix default bpp selection. (LP: #1818879)
 
- -- Timo Aaltonen <tjaalton@debian.org>  Fri, 08 Mar 2019 10:44:47 +0200
+ -- Timo Aaltonen <tjaalton@debian.org>  Fri, 08 Mar 2019 10:46:08 +0200
 
 xserver-xorg-video-vesa (1:2.4.0-1) unstable; urgency=medium
 

@@ -43,7 +43,7 @@
 #endif
 
 #include <string.h>
-
+#include <unistd.h>
 #include "vesa.h"
 
 /* All drivers initialising the SW cursor need this */
@@ -450,7 +450,15 @@ VESAPciProbe(DriverPtr drv, int entity_num, struct pci_device *dev,
 	     intptr_t match_data)
 {
     ScrnInfoPtr pScrn;
-    
+
+#ifdef __linux__
+    if (access("/sys/devices/platform/efi-framebuffer.0", F_OK) == 0 ||
+        access("/sys/devices/platform/efifb.0", F_OK) == 0) {
+        ErrorF("vesa: Refusing to run on UEFI\n");
+        return FALSE;
+    }
+#endif
+
     pScrn = xf86ConfigPciEntity(NULL, 0, entity_num, NULL, 
 				NULL, NULL, NULL, NULL, NULL);
     if (pScrn != NULL) {
@@ -846,9 +854,38 @@ VESAPreInit(ScrnInfoPtr pScrn, int flags)
     memcpy(pVesa->Options, VESAOptions, sizeof(VESAOptions));
     xf86ProcessOptions(pScrn->scrnIndex, pScrn->options, pVesa->Options);
 
-    /* Use shadow by default */
-    pVesa->shadowFB = xf86ReturnOptValBool(pVesa->Options, OPTION_SHADOW_FB,
-                                           TRUE);
+    /* Use shadow by default, for non-virt hardware */
+    if (!xf86GetOptValBool(pVesa->Options, OPTION_SHADOW_FB, &pVesa->shadowFB))
+    {
+	switch (pVesa->pciInfo->vendor_id) {
+	    case 0x1234: /* bochs vga (not in pci.ids) */
+	    case 0x15ad: /* vmware */
+	    case 0x1b36: /* qemu qxl */
+	    case 0x80ee: /* virtualbox */
+	    case 0xaaaa: /* parallels (not in pci.ids) */
+		pVesa->shadowFB = FALSE;
+		break;
+
+	    case 0x1013: /* qemu's cirrus emulation */
+		if (pVesa->pciInfo->subvendor_id == 0x1af4)
+		    pVesa->shadowFB = FALSE;
+		else
+		    pVesa->shadowFB = TRUE;
+		break;
+
+	    case 0x1414: /* microsoft hyper-v */
+		if (pVesa->pciInfo->device_id == 0x5353)
+		    pVesa->shadowFB = FALSE;
+		else
+		    pVesa->shadowFB = TRUE;
+		break;
+
+	    default:
+		pVesa->shadowFB = TRUE;
+		break;
+	}
+    }
+
     /*  Use default refresh by default. Too many VBE 3.0
      *   BIOSes are incorrectly implemented.
      */
@@ -876,14 +913,14 @@ VESAPreInit(ScrnInfoPtr pScrn, int flags)
 		    break;
 		default:
 		    xf86DrvMsg(pScrn->scrnIndex, X_ERROR,
-			       "Unsupported bpp: %d", pScrn->bitsPerPixel);
+			       "Unsupported bpp: %d\n", pScrn->bitsPerPixel);
 		    vbeFree(pVesa->pVbe);
 		    return FALSE;
 	    }
 	    break;
 	default:
 	    xf86DrvMsg(pScrn->scrnIndex, X_ERROR,
-		       "Unsupported Memory Model: %d", mode->MemoryModel);
+		       "Unsupported Memory Model: %d\n", mode->MemoryModel);
 	    return FALSE;
     }
 

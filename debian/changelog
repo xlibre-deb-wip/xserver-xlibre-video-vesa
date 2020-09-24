@@ -4,6 +4,7 @@ xserver-xorg-video-vesa (1:2.5.0-1) UNRELEASED; urgency=medium
   * Bump debhelper to 12.
   * upstream: Add ajax's gpg key to signing-key.asc.
   * control: Migrate to x11proto-dev.
+  * control: Bump policy to 4.5.0.
 
  -- Timo Aaltonen <tjaalton@debian.org>  Thu, 24 Sep 2020 10:58:08 +0300
 

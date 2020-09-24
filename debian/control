@@ -10,7 +10,7 @@ Build-Depends:
  xutils-dev (>= 1:7.5+4),
  quilt,
  libpciaccess-dev (>= 0.12.901),
-Standards-Version: 4.2.0
+Standards-Version: 4.5.0
 Vcs-Git: https://salsa.debian.org/xorg-team/driver/xserver-xorg-video-vesa.git
 Vcs-Browser: https://salsa.debian.org/xorg-team/driver/xserver-xorg-video-vesa
 

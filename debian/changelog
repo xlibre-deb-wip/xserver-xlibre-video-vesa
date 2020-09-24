@@ -1,3 +1,9 @@
+xserver-xorg-video-vesa (1:2.5.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Thu, 24 Sep 2020 10:58:08 +0300
+
 xserver-xorg-video-vesa (1:2.4.0-2) unstable; urgency=medium
 
   * Cherry-pick a commit to fix default bpp selection. (LP: #1818879)

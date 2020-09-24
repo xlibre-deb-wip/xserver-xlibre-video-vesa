@@ -1,4 +1,4 @@
-xserver-xorg-video-vesa (1:2.5.0-1) UNRELEASED; urgency=medium
+xserver-xorg-video-vesa (1:2.5.0-1) unstable; urgency=medium
 
   * New upstream release.
   * Bump debhelper to 12.
@@ -6,7 +6,7 @@ xserver-xorg-video-vesa (1:2.5.0-1) UNRELEASED; urgency=medium
   * control: Migrate to x11proto-dev.
   * control: Bump policy to 4.5.0.
 
- -- Timo Aaltonen <tjaalton@debian.org>  Thu, 24 Sep 2020 10:58:08 +0300
+ -- Timo Aaltonen <tjaalton@debian.org>  Thu, 24 Sep 2020 11:07:22 +0300
 
 xserver-xorg-video-vesa (1:2.4.0-2) unstable; urgency=medium
 

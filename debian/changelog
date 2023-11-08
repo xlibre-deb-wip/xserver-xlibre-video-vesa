@@ -1,6 +1,7 @@
 xserver-xorg-video-vesa (1:2.6.0-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * control: Bump policy to 4.6.2.
 
  -- Timo Aaltonen <tjaalton@debian.org>  Wed, 08 Nov 2023 14:23:44 +0200
 

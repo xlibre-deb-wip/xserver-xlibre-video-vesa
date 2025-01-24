@@ -1,11 +1,11 @@
-xserver-xorg-video-vesa (1:2.6.0-2) UNRELEASED; urgency=medium
+xserver-xorg-video-vesa (1:2.6.0-2) unstable; urgency=medium
 
   * Team upload.
   * Only build on x86 platforms. Closes: #1087279.
   * control: switch to pkgconf.
   * Switch copyright to DEP-5, thanks Zixing Liu.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 24 Jan 2025 09:29:32 +0100
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 24 Jan 2025 09:37:25 +0100
 
 xserver-xorg-video-vesa (1:2.6.0-1) unstable; urgency=medium
 

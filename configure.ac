@@ -40,8 +40,7 @@ XORG_MACROS_VERSION(1.8)
 XORG_DEFAULT_OPTIONS
 
 # Initialize libtool
-AC_DISABLE_STATIC
-AC_PROG_LIBTOOL
+LT_INIT([disable-static])
 
 AH_TOP([#include "xorg-server.h"])
 
@@ -57,21 +56,13 @@ XORG_DRIVER_CHECK_EXT(RENDER, renderproto)
 XORG_DRIVER_CHECK_EXT(DPMSExtension, xextproto)
 
 # Obtain compiler/linker options for the driver dependencies
-PKG_CHECK_MODULES(XORG, xorg-server >= 1.6 xproto fontsproto $REQUIRED_MODULES)
+PKG_CHECK_MODULES(XORG, xorg-server >= 1.18 xproto fontsproto $REQUIRED_MODULES)
 PKG_CHECK_MODULES(XEXT, [xextproto >= 7.0.99.1],
                   HAVE_XEXTPROTO_71="yes", HAVE_XEXTPROTO_71="no")
 
 if test "x$HAVE_XEXTPROTO_71" = xyes; then
     AC_DEFINE(HAVE_XEXTPROTO_71, 1, [xextproto 7.1 available])
 fi
-
-save_CFLAGS="$CFLAGS"
-CFLAGS="$XORG_CFLAGS"
-AC_CHECK_DECL(xf86ConfigIsaEntity,
-	      [AC_DEFINE(HAVE_ISA, 1, [Have ISA support])],
-	      [],
-	      [#include "xf86.h"])
-CFLAGS="$save_CFLAGS"
 
 save_CFLAGS="$CFLAGS"
 CFLAGS="$XORG_CFLAGS"
@@ -84,7 +75,10 @@ if test "x$XSERVER_LIBPCIACCESS" = xyes; then
     PKG_CHECK_MODULES([PCIACCESS], [pciaccess >= 0.12.901])
 fi
 
-# Checks for libraries.
+# Checks for library functions
+# We don't use strlcat, strlcpy, or timingsafe_memcmp, but check to quiet
+# -Wredundant-decls warning from xorg/os.h which will otherwise redefine them.
+AC_CHECK_FUNCS([strlcat strlcpy timingsafe_memcmp])
 
 DRIVER_NAME=vesa
 AC_SUBST([DRIVER_NAME])

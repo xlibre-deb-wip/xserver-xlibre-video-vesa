@@ -24,17 +24,17 @@ Depends:
 Provides:
  xserver-xorg-video-vesa,
  ${xviddriver:Provides}
-Description: X.Org X server -- VESA display driver
- This driver for the X.Org X server (see xserver-xorg for a further description)
+Description: XLibre X server -- VESA display driver
+ This driver for the XLibre X server (see xserver-xlibre for a further description)
  uses the standard VESA interface provided on all video cards, but runs
  unaccelerated.  This driver is not recommended for use unless you have a
  problem with the normal driver for your card, because it will perform very
  badly.
  .
- More information about X.Org can be found at:
- <URL:https://www.X.org>
+ More information about XLibre can be found at:
+ <URL:https://github.com/X11Libre/xserver>
  .
- This package is built from the X.org xf86-video-vesa driver module.
+ This package is built from the XLibre xf86-video-vesa driver module.
 Conflicts:
  xserver-xorg-video-vesa,
 
@@ -49,7 +49,7 @@ Depends:
 Provides:
  xserver-xorg-video-vesa-udeb,
  ${xviddriver:Provides}
-Description: X.Org X server -- vesa display driver
+Description: XLibre X server -- vesa display driver
  This is a udeb, or a microdeb, for the debian-installer.
 Conflicts:
  xserver-xorg-video-vesa-udeb,

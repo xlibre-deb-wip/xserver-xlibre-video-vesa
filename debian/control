@@ -22,7 +22,7 @@ Depends:
  ${misc:Depends},
  ${xviddriver:Depends},
 Provides:
- xserver-xorg-video-vesa,
+ xserver-xorg-video-vesa (= ${binary:Version}),
  ${xviddriver:Provides}
 Description: XLibre X server -- VESA display driver
  This driver for the XLibre X server (see xserver-xlibre for a further description)
@@ -47,7 +47,7 @@ Depends:
  ${misc:Depends},
  ${xviddriver:Depends},
 Provides:
- xserver-xorg-video-vesa-udeb,
+ xserver-xorg-video-vesa-udeb (= ${binary:Version}),
  ${xviddriver:Provides}
 Description: XLibre X server -- vesa display driver
  This is a udeb, or a microdeb, for the debian-installer.
